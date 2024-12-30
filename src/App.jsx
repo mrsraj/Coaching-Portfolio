@@ -8,6 +8,7 @@ import Testimonials from "./Components/Testimonials";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import BannerMover from "./Banners/BannerMover";
+import PaidCourses from "./Course/Courses";
 import "./index.css";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
             <main>
                 <Home />
                 <About />
+                <PaidCourses/>
                 <Portfolio />
                 <Testimonials />
                 <Contact />
