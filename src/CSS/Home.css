@@ -1,0 +1,36 @@
+.home {
+    background-color: #f4f4f4;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.home h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.home p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home h2 {
+        font-size: 1.8rem;
+    }
+
+    .home p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home h2 {
+        font-size: 1.5rem;
+    }
+
+    .home p {
+        font-size: 0.9rem;
+    }
+}

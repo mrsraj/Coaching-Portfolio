@@ -1,0 +1,37 @@
+.portfolio {
+    background-color: #f4f4f4;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.portfolio p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .portfolio h2 {
+        font-size: 1.8rem;
+    }
+
+    .portfolio p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio h2 {
+        font-size: 1.5rem;
+    }
+
+    .portfolio p {
+        font-size: 0.9rem;
+    }
+}
