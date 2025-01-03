@@ -1,0 +1,131 @@
+.videoPlayer {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #f5f5f5;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebarVisible {
+    width: 250px;
+}
+
+.sidebarHidden {
+    width: 0;
+    padding: 0;
+}
+
+.toggleButton {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.toggleButton:hover {
+    background-color: #0056b3;
+}
+
+.videoList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.videoItem {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.videoItem:hover,
+.activeVideo {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Video Container Styles */
+.videoContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: flex 0.3s ease;
+}
+
+.videoContainerShrink {
+    flex: 0.8;
+}
+
+.videoContainerExpand {
+    flex: 1;
+}
+
+.videoPlayerFrame {
+    width: 100%;
+    height: calc(70% - 1rem);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    background: black;
+}
+
+.videoDetails {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.videoDetails h3 {
+    margin: 0 0 0.5rem;
+}
+
+.videoDetails p {
+    margin: 0.2rem 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebarVisible {
+        width: 200px;
+    }
+
+    .toggleButton {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .videoPlayer {
+        flex-direction: column;
+    }
+
+    .sidebarVisible {
+        width: 100%;
+    }
+
+    .videoContainerShrink,
+    .videoContainerExpand {
+        flex: 1;
+    }
+}
