@@ -1,0 +1,151 @@
+.paid_courses {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.courses_container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.courses_container::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari, and Edge */
+}
+
+.course_card {
+    min-width: 250px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px;
+    /* Fixed height */
+}
+
+.course_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.course_card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: #f4f4f4;
+}
+
+.course_card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.course_card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Price Styles */
+.price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.original_price {
+    font-size: 1.2rem;
+    color: #888;
+    text-decoration: line-through;
+}
+
+.discounted_price {
+    font-size: 1.4rem;
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* Button Styles */
+.course_actions {
+    display: flex;
+    justify-content: space-between;
+    /* Ensure buttons are aligned in a row */
+    gap: 10px;
+    /* Adds space between the buttons */
+    margin-top: 1rem;
+}
+
+.buy_button,
+.add_to_cart_button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 48%;
+    /* Ensures buttons are equally sized and fit in a row */
+}
+
+.buy_button:hover,
+.add_to_cart_button:hover {
+    background-color: #e64a19;
+}
+
+.buy_button:focus,
+.add_to_cart_button:focus {
+    outline: none;
+}
+
+/* Scroll Buttons */
+.scroll_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.scroll_btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.scroll_btn.left {
+    left: 10px;
+}
+
+.scroll_btn.right {
+    right: 10px;
+}
