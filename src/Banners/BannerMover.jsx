@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./BannerMover.css";
+import style from "./BannerMover.module.css";
 
 const banners = [
     {
@@ -36,37 +36,19 @@ const BannerMover = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const handlePrev = () => {
-        setDirection("prev");
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? banners.length - 1 : prevIndex - 1
-        );
-    };
-
-    const handleNext = () => {
-        setDirection("next");
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
-    };
-
     return (
-        <div className="banner-mover">
-            <div className={`banners-container ${direction}`}>
+        <div className={style.banner_mover}>
+            <div className={`${style.banners_Container} ${style[direction]}`}>
                 {banners.map((banner, index) => (
                     <div
                         key={index}
-                        className={`banner ${
-                            index === currentIndex ? "active" : ""
-                        }`}
+                        className={`${style.banner} ${index === currentIndex ? style.active : ""}`}
                         style={{ background: banner.background }}
                     >
                         <h2>{banner.title}</h2>
                         <p>{banner.description}</p>
                     </div>
                 ))}
-            </div>
-            <div className="controls">
-                <button onClick={handlePrev}>Previous</button>
-                <button onClick={handleNext}>Next</button>
             </div>
         </div>
     );
