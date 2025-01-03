@@ -1,35 +1,74 @@
+/* General Header Styles */
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
     background-color: #333;
     color: white;
-    padding: 1rem;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
 }
 
-.header nav {
-    margin-top: 10px;
-}
-
-.header nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
+.logo {
+    font-size: 1.5rem;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-.header nav a:hover {
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav a:hover {
     color: #ff9800;
 }
 
-/* Responsive */
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
-    .header nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+    .nav {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        background-color: #444;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        z-index: 100;
     }
 
-    .header nav a {
-        margin: 10px;
+    .nav.open {
+        display: flex;
+        /* Displayed when toggled */
+    }
+
+    .hamburger {
+        display: flex;
+        /* Show hamburger icon on mobile */
     }
 }
