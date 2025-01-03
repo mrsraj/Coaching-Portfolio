@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { useMyContext } from "../Context/AppContext";
 import "../CSS/Testimonials.css";
 
-const Testimonials = () => {
+function Testimonials(){
+
     const { portfolioData } = useMyContext();
+
     return (
         <section id="testimonials" className="testimonials">
             <h2>Testimonials</h2>
