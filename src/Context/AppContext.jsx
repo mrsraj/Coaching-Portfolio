@@ -5,6 +5,9 @@ const AppContext = createContext();
 function AppProvider({ children }) {
 
     const [cart, setCart] = useState([]);
+    const [selectedCourse, setSelectedCourse] = useState(null); // To store selected course for payment
+    const [showPaymentModal, setShowPaymentModal] = useState(false); // State for payment modal visibility
+    const [showReceipt, setShowReceipt] = useState(false); // State for receipt visibility
 
     const addToCart = (course) => {
         setCart((prevCart) => [...prevCart, course]);
@@ -22,7 +25,10 @@ function AppProvider({ children }) {
     return (
         <AppContext.Provider value={{
             portfolioData, setPortfolioData,
-            cart, addToCart
+            cart, addToCart,
+            selectedCourse, setSelectedCourse,
+            showPaymentModal, setShowPaymentModal,
+            showReceipt, setShowReceipt
         }}>
 
             {children}
