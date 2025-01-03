@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { useMyContext } from "../Context/AppContext"; // Importing CartContext
-import "./Courses.css";
+import style from "./Courses.module.css";
+import Payment from "../Payment/Payment";
+import Receipt from "../Payment/Receipt";
 
 // Sample course data with original price and discount percentage
 const courses = [
@@ -52,14 +54,11 @@ const calculateDiscountedPrice = (originalPrice, discountPercentage) => {
 };
 
 const PaidCourses = () => {
-    const [showPaymentModal, setShowPaymentModal] = useState(false); // State for payment modal visibility
-    const [showReceipt, setShowReceipt] = useState(false); // State for receipt visibility
-    const [selectedCourse, setSelectedCourse] = useState(null); // To store selected course for payment
     const scrollRef = useRef(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
 
-    const { addToCart } = useMyContext(); // Using addToCart from context
+    const { addToCart,setSelectedCourse, showPaymentModal, showReceipt,setShowPaymentModal} = useMyContext(); // Using addToCart from context
 
     const checkScroll = () => {
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -90,53 +89,41 @@ const PaidCourses = () => {
         setShowPaymentModal(true); // Show the payment modal when Buy Now is clicked
     };
 
-    const handlePayment = () => {
-        setShowPaymentModal(false); // Hide payment modal
-        setShowReceipt(true); // Show receipt modal
-    };
-
-    const closeReceipt = () => {
-        setShowReceipt(false); // Close receipt modal
-    };
-
-    const closePaymentModal = () => {
-        setShowPaymentModal(false); // Close the payment modal when X is clicked
-    };
 
     return (
-        <> <h2 className="courses-heading">OUR COURSES</h2>
-            <div className="paid-courses">
+        <> <h2 className={style.courses_heading}>OUR COURSES</h2>
+            <div className={style.paid_courses}>
                 {canScrollLeft && (
-                    <button className="scroll-btn left" onClick={() => scroll("left")}>
+                    <button className={`${style.scroll_btn} ${style.left}`} onClick={() => scroll("left")}>
                         &#9664;
                     </button>
                 )}
-                <div className="courses-container" ref={scrollRef}>
+                <div className={style.courses_container} ref={scrollRef}>
                     {courses.map((course) => (
-                        <div key={course.id} className="course-card">
+                        <div key={course.id} className={style.course_card}>
                             <img src={course.logo} alt={`${course.title} logo`} />
                             <h3>{course.title}</h3>
                             <p>{course.description}</p>
-                            <div className="price">
-                                <span className="original-price">
+                            <div className={style.price}>
+                                <span className={style.original_price}>
                                     ${course.originalPrice.toFixed(2)}
                                 </span>
-                                <span className="discounted-price">
+                                <span className={style.discounted_price}>
                                     ${calculateDiscountedPrice(
                                         course.originalPrice,
                                         course.discountPercentage
                                     )}
                                 </span>
                             </div>
-                            <div className="course-actions">
+                            <div className={style.course_actions}>
                                 <button
-                                    className="buy-button"
+                                    className={style.buy_button}
                                     onClick={() => handleBuyNow(course)}
                                 >
                                     Buy Now
                                 </button>
                                 <button
-                                    className="add-to-cart-button"
+                                    className={style.add_to_cart_button}
                                     onClick={() => handleAddToCart(course)}
                                 >
                                     Add to Cart
@@ -146,53 +133,16 @@ const PaidCourses = () => {
                     ))}
                 </div>
                 {canScrollRight && (
-                    <button className="scroll-btn right" onClick={() => scroll("right")}>
+                    <button className={`${style.scroll_btn} ${style.right}`} onClick={() => scroll("right")}>
                         &#9654;
                     </button>
                 )}
 
                 {/* Fake Payment Modal */}
-                {showPaymentModal && (
-                    <div className="payment-modal">
-                        <div className="modal-content">
-                            <button className="close-modal-btn" onClick={closePaymentModal}>
-                                &times;
-                            </button>
-                            <h2>Payment Page</h2>
-                            <p>
-                                You are about to purchase the course{" "}
-                                <strong>{selectedCourse?.title}</strong> for{" "}
-                                <strong>
-                                    ${calculateDiscountedPrice(
-                                        selectedCourse?.originalPrice,
-                                        selectedCourse?.discountPercentage
-                                    )}
-                                </strong>
-                            </p>
-                            <button className="payment-btn" onClick={handlePayment}>
-                                Make Payment
-                            </button>
-                        </div>
-                    </div>
-                )}
+                {showPaymentModal && <Payment/>}
 
                 {/* Payment Receipt Modal */}
-                {showReceipt && (
-                    <div className="receipt-modal">
-                        <div className="modal-content">
-                            <h2>Payment Successful</h2>
-                            <p>
-                                Thank you for your purchase of <strong>{selectedCourse?.title}</strong>.
-                            </p>
-                            <p>
-                                Amount Paid: <strong>${calculateDiscountedPrice(selectedCourse?.originalPrice, selectedCourse?.discountPercentage)}</strong>
-                            </p>
-                            <button className="close-receipt-btn" onClick={closeReceipt}>
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                )}
+                {showReceipt && <Receipt/>}
             </div>
         </>
     );
