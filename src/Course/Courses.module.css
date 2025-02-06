@@ -44,13 +44,16 @@
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
-.course_card img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+.course_card .logodiv {
+    height: 172px;
+    width: 290px;
     margin-bottom: 1rem;
-    border-radius: 50%;
     background: #f4f4f4;
+}
+
+.course_card img {
+    height: 100%;
+    width: 100%;
 }
 
 .course_card h3 {
@@ -148,4 +151,8 @@
 
 .scroll_btn.right {
     right: 10px;
+}
+
+.course_h{
+    text-align: center;
 }
