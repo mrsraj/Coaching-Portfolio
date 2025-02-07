@@ -8,3 +8,7 @@ body {
 *{
     scrollbar-width: none;
 }
+
+.app{
+    background-color: azure;
+}
