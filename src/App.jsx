@@ -17,30 +17,32 @@ import VideoPlayer from "./VideoComponents/VideoPlayer";
 
 const App = () => {
     return (
-        <AppProvider>
-            <Router>
-                {/* Always visible components */}
-                <Header />
-                <BannerMover />
-                <PaidCourses />
-                <TeachersTeam />
+        <div className="app">
+            <AppProvider>
+                <Router>
+                    {/* Always visible components */}
+                    <Header />
+                    <BannerMover />
+                    <PaidCourses />
+                    <TeachersTeam />
 
-                {/* Routed components */}
-                <main>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/portfolio" element={<Portfolio />} />
-                        <Route path="/testimonials" element={<Testimonials />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/videos" element={<VideoPlayer />} />
-                    </Routes>
-                </main>
+                    {/* Routed components */}
+                    <main>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="/portfolio" element={<Portfolio />} />
+                            <Route path="/testimonials" element={<Testimonials />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/videos" element={<VideoPlayer />} />
+                        </Routes>
+                    </main>
 
-                {/* Footer */}
-                <Footer />
-            </Router>
-        </AppProvider>
+                    {/* Footer */}
+                    <Footer />
+                </Router>
+            </AppProvider>
+        </div>
     );
 };
 
