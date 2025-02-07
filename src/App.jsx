@@ -23,20 +23,22 @@ const App = () => {
                     {/* Always visible components */}
                     <Header />
                     <BannerMover />
-                    <PaidCourses />
-                    <TeachersTeam />
 
-                    {/* Routed components */}
                     <main>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/portfolio" element={<Portfolio />} />
                             <Route path="/testimonials" element={<Testimonials />} />
-                            <Route path="/contact" element={<Contact />} />
                             <Route path="/videos" element={<VideoPlayer />} />
                         </Routes>
                     </main>
+
+                    <PaidCourses />
+                    <TeachersTeam />
+
+                    {/* Routed components */}
+
 
                     {/* Footer */}
                     <Footer />
