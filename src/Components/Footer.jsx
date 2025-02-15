@@ -19,6 +19,10 @@ const Footer = () => (
             <h4>CONTACT</h4>
             <Contact />
         </div>
+
+        <div>
+            <a href="https://wa.me/7322078774?text-Hello am Sachin Raj?" target="_blank">w</a>
+        </div>
     </footer>
 );
 
