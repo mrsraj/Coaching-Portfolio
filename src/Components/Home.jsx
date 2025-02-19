@@ -1,10 +1,12 @@
 import React from "react";
 import "../CSS/Home.css";
+import PaidCourses from "../Course/Courses";
+import TeachersTeam from "../Teams/TeachersTeam";
 
 const Home = () => (
     <section id="home" className="home">
-        <h2>Welcome to Raj Coaching</h2>
-        <p>Transform your life with expert coaching.</p>
+        <PaidCourses />
+        <TeachersTeam />
     </section>
 );
 
