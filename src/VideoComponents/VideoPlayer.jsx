@@ -38,17 +38,20 @@ const VideoPlayer = () => {
 
     return (
         <div className={style.videoPlayer}>
+
+            <button className={style.toggleButton} onClick={toggleSidebar}>
+                {sidebarVisible ? "<<<" : ">>>"}
+            </button>
+
             <div
                 className={`${style.sidebar} ${sidebarVisible ? style.sidebarVisible : style.sidebarHidden
                     }`}
             >
-                <button className={style.toggleButton} onClick={toggleSidebar}>
-                    {sidebarVisible ? "Hide Sidebar" : "Show Sidebar"}
-                </button>
+
                 <ul className={style.videoList}>
-                    {videoData.map((video) => (
+                    {videoData.map((video, id) => (
                         <li
-                            key={video.id}
+                            key={id}
                             className={`${style.videoItem} ${selectedVideo.id === video.id ? style.activeVideo : ""
                                 }`}
                             onClick={() => setSelectedVideo(video)}
@@ -57,11 +60,12 @@ const VideoPlayer = () => {
                         </li>
                     ))}
                 </ul>
+
             </div>
 
             <div
-                className={`${style.videoContainer} ${sidebarVisible ? style.videoContainerShrink : style.videoContainerExpand
-                    }`}
+                className={`${style.videoContainer} 
+                ${sidebarVisible ? style.videoContainerShrink : style.videoContainerExpand}`}
             >
                 <video
                     src={selectedVideo.videoUrl}
