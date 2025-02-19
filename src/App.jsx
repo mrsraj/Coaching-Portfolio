@@ -8,11 +8,8 @@ import Home from "./Components/Home";
 import About from "./Components/About";
 import Portfolio from "./Components/Portfolio";
 import Testimonials from "./Components/Testimonials";
-import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import BannerMover from "./Banners/BannerMover";
-import PaidCourses from "./Course/Courses";
-import TeachersTeam from "./Teams/TeachersTeam";
 import VideoPlayer from "./VideoComponents/VideoPlayer";
 
 const App = () => {
@@ -34,13 +31,7 @@ const App = () => {
                         </Routes>
                     </main>
 
-                    <PaidCourses />
-                    <TeachersTeam />
-
-                    {/* Routed components */}
-
-
-                    {/* Footer */}
+                    
                     <Footer />
                 </Router>
             </AppProvider>
