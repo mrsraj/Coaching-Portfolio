@@ -13,18 +13,8 @@ function AppProvider({ children }) {
         setCart((prevCart) => [...prevCart, course]);
     };
 
-    const [portfolioData, setPortfolioData] = useState({
-        name: "John Doe",
-        coachingAreas: ["Life Coaching", "Executive Coaching", "Career Coaching"],
-        testimonials: [
-            { name: "Alice", feedback: "Great coach! Helped me immensely." },
-            { name: "Bob", feedback: "Transformative experience!" },
-        ],
-    });
-
     return (
         <AppContext.Provider value={{
-            portfolioData, setPortfolioData,
             cart, addToCart,
             selectedCourse, setSelectedCourse,
             showPaymentModal, setShowPaymentModal,
