@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom"; // Use NavLink instead of Link
+import { NavLink } from "react-router-dom"; 
 import "../CSS/Header.css";
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false); // Corrected state initialization
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -12,34 +12,34 @@ const Header = () => {
     return (
         <header className="header">
             <div className="logo">Raj Coaching</div>
+            
             <nav className={`nav ${menuOpen ? "open" : ""}`}>
                 <NavLink
                     to="/"
-                    className={({ isActive }) => (isActive ? "nav-link active-link" : "nav-link")}
+                    
                 >
                     Home
                 </NavLink>
                 <NavLink
                     to="/about"
-                    className={({ isActive }) => (isActive ? "nav-link active-link" : "nav-link")}
                 >
                     About
                 </NavLink>
                 <NavLink
                     to="/portfolio"
-                    className={({ isActive }) => (isActive ? "nav-link active-link" : "nav-link")}
                 >
                     Portfolio
                 </NavLink>
                 <NavLink
                     to="/testimonials"
-                    className={({ isActive }) => (isActive ? "nav-link active-link" : "nav-link")}
                 >
                     Testimonials
                 </NavLink>
                 
-                <NavLink>
-                    Contact
+                <NavLink
+                  to='/videos' 
+                >
+                    DemoVideo
                 </NavLink>
             </nav>
             <div className="hamburger" onClick={toggleMenu}>
